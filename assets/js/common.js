@@ -7,7 +7,7 @@
  * @returns a list of checklist objects
  */
 function loadChecklists() {
-    var rawChecklists = getCookie('checklists');
+    var rawChecklists = localStorage.getItem('checklists');
     var checklists = [];
 
     if (!!rawChecklists) {
@@ -43,7 +43,7 @@ function createDummyChecklist() {
  * @param checklists list of checklist objects
  */
 function saveChecklists(checklists) {
-    setCookie('checklists', JSON.stringify(checklists));
+    localStorage.setItem('checklists', JSON.stringify(checklists));
 
     // syncing last updated cookie
     var request = new XMLHttpRequest();
